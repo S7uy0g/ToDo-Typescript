@@ -9,19 +9,29 @@ let role:[number,string];
 type Person={
     name:string;
     age:number;
-    number?:number;
+    number?:number;/*optional field*/
 }
-let person:Person={
+let person:Person={  /*Class*/
     name:"Suyog Rai",
     age:21,
 }
-let lotsOfPeople:Person[];
+let lotsOfPeople:Person[];  /*Object*/
 lotsOfPeople=[
     { name: "Prapti", age: 21 },  
     { name: "John Doe", age: 30 }, 
     { name: "Jane Doe", age: 25 },
   ];
 
+
+interface Guy extends Person{
+  position:string;
+}
+
+let guy:Guy={
+  position: "Engineer",
+  name: "John Doe",
+  age: 0
+}
 
 const types = () => {
   return (
@@ -31,6 +41,7 @@ const types = () => {
       {lotsOfPeople.map((person, index) => (
           <p key={index}>{`${person.name} is ${person.age} years old`}</p>
         ))}
+      <div>{guy.name} is a {guy.position} who is {guy.age}</div>
     </div>
   )
 }
