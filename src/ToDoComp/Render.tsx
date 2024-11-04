@@ -1,13 +1,23 @@
 import React from 'react'
+import SingleToDo from './SingleToDo';
 import { model } from '../Models/model';
+
 interface props{
     toDos:model[];
+    setToDos:React.Dispatch<React.SetStateAction<string | number>>;
 }
 
-const Render = ({toDos}:props) => {
+const Render = ({toDos,setToDos}:props) => {
   return (
     <div>
-      {toDos.map((t)=>(<li key={t.id}>{t.toDo}</li>))}
+      {toDos.map((t)=>(
+        <SingleToDo 
+        toDo={t} 
+        key={t.id}
+        todos={toDos}
+        setToDos={setToDos}
+        />
+      ))}
     </div>
   )
 }
