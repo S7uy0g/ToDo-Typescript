@@ -4,7 +4,7 @@ import { model } from '../Models/model';
 
 interface props{
     toDos:model[];
-    setToDos:React.Dispatch<React.SetStateAction<string | number>>;
+    setToDos:React.Dispatch<React.SetStateAction<model[]>>;
 }
 
 const Render = ({toDos,setToDos}:props) => {

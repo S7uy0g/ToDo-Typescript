@@ -24,7 +24,7 @@ const App:React.FC=() => {
         </div>
       </div>
       <ToDo toDo={toDo} setToDo={setToDo} handleAdd={handleAdd}/>
-      <Render toDos={toDos}/>
+      <Render toDos={toDos} setToDos={setToDos}/>
     </div>
   )
 }
