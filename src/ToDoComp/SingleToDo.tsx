@@ -17,6 +17,9 @@ const SingleToDo = ({toDo,todos,setToDos}:props) => {
       todo.id===id?{...todo,done:!todo.done}:todo
     ))
   }
+  const handleDelete=(id:number)=>{
+    setToDos(todos.filter((toDo)=>toDo.id!==id))
+  }
   return (
     <div className='flex flex-col items-center'>
       <form action="" className="w-1/2 flex justify-around items-end flex-wrap text-wrap px-4 py-4 rounded-xl bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
@@ -31,7 +34,7 @@ const SingleToDo = ({toDo,todos,setToDos}:props) => {
         }
         <div className='w-1/3 flex justify-between'>
             <span className='cursor-pointer hover:scale-125 transition duration-150 ease-in-out'><FaEdit/></span>
-            <span className='cursor-pointer hover:scale-125 transition duration-150 ease-in-out'><MdDelete/></span>
+            <span className='cursor-pointer hover:scale-125 transition duration-150 ease-in-out' onClick={()=>handleDelete(toDo.id)}><MdDelete/></span>
             <span className='cursor-pointer hover:scale-125 transition duration-150 ease-in-out' onClick={()=>handleDone(toDo.id)}><FaCheck/></span>
         </div>
       </form>
